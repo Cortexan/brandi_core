@@ -1,0 +1,107 @@
+# settings vars
+
+# structure settings
+
+n_prac_trials   = 1                 # can be repeat, or can be minimum + repeat
+n_trials        = 10                # may need to be from subset for counterbalancing
+n_blocks        = 20                # may need to be from subset for counterbalancing
+practice_cutoff = 75                # percentile accurate to pass / not repeat
+n_reps          = 4                 # the number of stimulus display repetitions per trial
+fix_1_ms        = 50                # durration of fixation 1 in ms
+fix_2_ms        = 50                # durration of fixation 2 in ms
+isi_ms          = 100               # durration of inter-stimulus interval
+isi_jit_ms      = [10:50:5]         # range of jitters +/- to be added to isi
+resp_ms         = 1500              # durration of the response window
+iti_ms          = 1000              # duration of the inter-trial interval
+n_rings         = 2                 # number of concentric rings of stimuli
+n_stim_r1       = 10                # number of stimuli in ring 1
+n_stim_r2       = 20                # number of stimuli in ring 2
+n_distractors   = [1:8]             # number of distractors
+n_xtargs        = [1:8]             # number of non-targets
+
+
+
+# stimuli settings
+r1_radius       = 5                 # radius of r1 in degrees visual angle
+r2_radius       = 10                # radius of r2 in degrees visual angle
+stim_radius     = 2                 # radius of stimulus frame (for scaling object sizes)
+
+stim_dot        = True              # whether to include a stimulus dot or not
+stim_dot_loc    = 'vertical'        # whether the stim dot appears on the vertical or hoirzontal axis
+
+t_loc_r_prop    = 0.5               # proportion of trials where target is in r1
+d_loc_r_prop    = 0.5               # proportion of trials where target is in r2
+
+stim_set        = ['shapes',        # which set of stimuli to use
+                    'lines']        
+
+# colours
+targ_col        = [0,0,0]           # colour(s) of the target object(s)
+dist_col        = [0,0,0]           # colour(s) of the distractor object(s)
+xtarg_col       = [0,0,0]           # colour(s) of the non-target item(s)
+fix_col         = [0,0,0]           # color of fixation cross
+bg_col          = [0,0,0]           # screen background colour
+fix_col         = [0,0,0]           # fixation cross colour
+green           = [0,255,0]         # e.g., positive positive colour
+red             = [255,0,0]         # e.g., negative feedback colour
+white           = [255,255,255]     # e.g., text colour
+black           = [0,0,0]           # e.g., background colour
+
+
+# constants - do not change
+sec_ms          = 1000              # setting for 1 second (usefull for instructions, delay periods)
+500_ms          = 500               # setting for half second (usefull for instructions, delay periods)
+
+
+# shape vars
+line_dim        = [x, y]            # dimensions of the line stims (can be box or direct)
+shape_dim       = [x, y]            # dimensions of the shape stims
+                                    # these are the dimensions of the box the shape itself
+                                    # is drawn within, for consistency. The dimensions of each 
+                                    # shape itself are then drawn within the box.
+                                    # alternatively, can use area of the shape as a constant
+
+# stim sets
+shapes          = [triangle, hexagon, oval, cross, diamond, gate, square, circle]
+line_angs       =  [0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5]
+
+
+# thresholds:
+practice repeats until 75% accuracy or higher
+practice allows repeats
+end of practice = repeat if accuracy < 75%
+                OR
+                  option repeat or pass
+
+# trial flow:
+blank(iti) -> 1000 ms
+fix -> 500 ms
+stim_0 -> 50 ms 
+isi -> 50 ms
+...
+stim_N -> 50 ms
+response -> 1500 ms
+feedback?
+
+
+# necessary functions:
+randomisation handler for target side / distractor side
+randomisation handler for trials per block, targets per trial
+radial location handler for ring 1, ring 2 with param for n_objects (locations)
+class for each shape with params for colour, location, size, orientation, dot location
+trial handler
+block handler
+response handler
+window handler
+storage handler
+trigger handler
+
+can probbly reuse parts of radgrid
+reuse waitspace, closewin, prands where applicable
+
+# questions:
+target colour randomisations?
+distractor colour randomisations? 
+non-target colour randomisations?
+
+jitter times?
