@@ -58,12 +58,11 @@ def get_item(aDict, item):
             return value
 
 
-def waitSpace(kb, trig, win, win2):
+def waitSpace(kb, trig, win):
     keys = kb.waitKeys(keyList=['escape', 'space'])
     if keys[0] == 'escape':
         trig.close()
         win.close()
-        win2.close()
         core.quit()
 
 
