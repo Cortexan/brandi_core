@@ -1,4 +1,5 @@
 from psychopy import visual
+from psychopy.hardware import keyboard
 
 win = visual.Window(size = [800, 800],
                     fullscr = False,
@@ -6,3 +7,5 @@ win = visual.Window(size = [800, 800],
                     monitor = 'Home2',
                     color = [0,0,0]
                     )
+
+kb = keyboard.Keyboard()
