@@ -43,4 +43,4 @@ win.flip()
 kb.waitKeys(keyList=['space'])
 
 win.close()
-core,quit()
+core.quit()
