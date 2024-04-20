@@ -20,13 +20,12 @@ n_xtargs        = [_ for _ in range(1,8)]
                                     # number of non-targets
 
 # stimuli settings
+shape_dva       = 1                 # size of the stimuli in degrees visual angle
 r1_radius       = 5                 # radius of r1 in degrees visual angle
 r2_radius       = 10                # radius of r2 in degrees visual angle
 stim_radius     = 2                 # radius of stimulus frame (for scaling object sizes)
-stim_dot        = True              # whether to include a stimulus dot or not
-stim_dot_loc    = 'vertical'        # whether the stim dot appears on the vertical or hoirzontal axis
-t_loc_r_prop    = 0.5               # proportion of trials where target is in r1
-d_loc_r_prop    = 0.5               # proportion of trials where target is in r2
+t_r1_prop       = 0.5               # proportion of trials where target is in r1
+t_r2_prop       = 0.5               # proportion of trials where target is in r2
 stim_set        = ['shapes',        # which set of stimuli to use
                     'lines']        
 
@@ -43,3 +42,14 @@ black           = [0,0,0]           # e.g., background colour
 
 # constants - do not change
 sec_ms          = 1000              # setting for 1 second (usefull for instructions, delay periods)
+
+# create a colour set (can be hex or RGB, I prefer hex but RGB here for simplicity)
+color_set = {'red'      : [255,     0,      0   ],
+             'green'    : [0,       255,    0   ],
+             'blue'     : [0,       0,      255 ],
+             'yellow'   : [255,     255,    0   ],
+             'black'    : [0,       0,      0   ],
+             'purple'   : [255,     0,      255 ],
+             'orange'   : [255,     165,    0   ],
+             'pink'     : [255,     192,    203 ],
+             'white'    : [255,     255,    255 ]}
