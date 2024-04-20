@@ -1,10 +1,9 @@
 # Importing necessary modules, functions, and settings from other local files
+from psychopy import core
+from functions import pRands, radGrid, waitSpace
 from startup import win, kb
 from settings import *
 from stimuli import Shape, Fix
-from psychopy import visual, core
-from psychopy.hardware import keyboard
-from functions import pRands, radGrid, waitSpace
 
 # creating all of the stimuli - these are all instances of the Shape class, which is defined in stimuli.py
 # the Shape class requires a shape name (string) and a scale (float) as arguments
