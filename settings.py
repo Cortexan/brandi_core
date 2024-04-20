@@ -52,4 +52,5 @@ color_set = {'red'      : '#FF1010',
              'purple'   : '#800080',
              'orange'   : '#FF6500',
              'pink'     : '#FF00CB',
-             'white'    : '#DDDDDD',}
+             'white'    : '#DDDDDD',
+             'bgColor'  : '#252525'}
