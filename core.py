@@ -5,6 +5,8 @@ from startup import win, kb
 from settings import *
 from stimuli import Shape, Fix
 
+#%% - creating stimuli
+#region - click carrot to expand
 # creating all of the stimuli - these are all instances of the Shape class, which is defined in stimuli.py
 # the Shape class requires a shape name (string) and a scale (float) as arguments
 # you can create multiple instances of the same shape, as long as you give them different variable names.
@@ -13,6 +15,7 @@ from stimuli import Shape, Fix
 # the scale is a float that will be multiplied by the size of the shape in degrees visual angle.
 # all shapes have an equal surface area for a given scale, so they will all be the same size on the screen.
 # you can change the size of the shapes by changing the scale value.
+#endregion
 
 square      = Shape('square', shape_dva)
 diamond     = Shape('diamond', shape_dva)
@@ -28,13 +31,18 @@ fix         = Fix()
 # group stimuli
 shapes = [square, diamond, triangle, circle, cross, hexagon, rectangle, oval, gate]
 
+#%% - creating radial grid positions for each ring
+
 # # create radial grid positions for each ring -- not in use yet
 # r1_postions = radGrid(n_stim_r1, r1_radius)
 # r2_postions = radGrid(n_stim_r2, r2_radius)
 
+#%% - setup colors
+#region
 # select colors from color_set (defined in settings.py) - 
 # I'm using list comprehension to get all the values from the dictionary,
 # but you could also just list them out manually, calling each color (or 'key') by name.
+#endregion
 colors = [color for color in color_set.values()]
 
 
