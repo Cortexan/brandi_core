@@ -76,11 +76,12 @@ def Shape(shape, scale):
                                 size = shapes[shape]['size'],
                                 ori = shapes[shape]['ori'],
                                 units = 'deg',
+                                colorSpace='hex',
                                 fillColor='white',
                                 lineColor='black',
                                 lineWidth = 0,
                                 opacity  = 1,
-                            interpolate = True)
+                                interpolate = True)
 
 def Fix():
     return visual.ShapeStim(win = win,
@@ -89,6 +90,7 @@ def Fix():
                             size = 0.25,
                             ori = 0,
                             units = 'deg',
+                            colorSpace='hex',
                             fillColor='white',
                             lineColor='black',
                             lineWidth = 1,

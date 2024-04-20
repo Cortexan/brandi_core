@@ -43,13 +43,13 @@ black           = [0,0,0]           # e.g., background colour
 # constants - do not change
 sec_ms          = 1000              # setting for 1 second (usefull for instructions, delay periods)
 
-# create a colour set (can be hex or RGB, I prefer hex but RGB here for simplicity)
-color_set = {'red'      : [255,     0,      0   ],
-             'green'    : [0,       255,    0   ],
-             'blue'     : [0,       0,      255 ],
-             'yellow'   : [255,     255,    0   ],
-             'black'    : [0,       0,      0   ],
-             'purple'   : [255,     0,      255 ],
-             'orange'   : [255,     165,    0   ],
-             'pink'     : [255,     192,    203 ],
-             'white'    : [255,     255,    255 ]}
+# create a colour set (can be hex or RGB, I prefer hex)
+color_set = {'red'      : '#FF1010',
+             'green'    : '#00FF00',
+             'blue'     : '#0000FF',
+             'gold'     : '#FFD700',
+             'indigo'   : '#4B0082',
+             'purple'   : '#800080',
+             'orange'   : '#FF6500',
+             'pink'     : '#FF00CB',
+             'white'    : '#DDDDDD',}
