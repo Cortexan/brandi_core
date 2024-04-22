@@ -1,13 +1,30 @@
+import numpy as np
 from psychopy import visual
 from psychopy.hardware import keyboard
 from settings import color_set
 
-win = visual.Window(size = [800, 800],
-                    fullscr = False,
-                    screen = 0,
+# create visual window
+win = visual.Window(size = [2560, 1440],
+                    fullscr = True,
+                    screen = 1,
+                    winType = 'pyglet',
                     monitor = 'Home2',
-                    color = color_set['bgColor'])
+                    colorSpace = 'hex',
+                    color = color_set['bgColor'],
+                    infoMsg = 'Just a moment...')
 
+# hide the mouse
 win.mouseVisible = False
+
+# warm up the window
+for x in range(100):
+    win.flip()
+
+# get the frame duration
+frame_test = []
+for i in range(10):
+    frame_time = 1.0 / round(win.getActualFrameRate(infoMsg = ''))
+    frame_test.append(frame_time)
+frame_dur = 1000*np.median(frame_test)
 
 kb = keyboard.Keyboard()

@@ -72,27 +72,72 @@ def Shape(shape, scale):
                 }
         
         return visual.ShapeStim(win = win,
-                                vertices=shapes[shape]['vertices'],
+                                vertices = shapes[shape]['vertices'],
                                 size = shapes[shape]['size'],
                                 ori = shapes[shape]['ori'],
                                 units = 'deg',
-                                colorSpace='hex',
-                                fillColor='white',
-                                lineColor='black',
-                                lineWidth = 0,
+                                colorSpace = 'hex',
+                                fillColor = 'white',
+                                lineColor = 'black',
+                                lineWidth = 1,
                                 opacity  = 1,
                                 interpolate = True)
 
-def Fix():
-    return visual.ShapeStim(win = win,
-                            pos = (0, 0),
-                            vertices='cross',
-                            size = 0.25,
-                            ori = 0,
-                            units = 'deg',
-                            colorSpace='hex',
-                            fillColor='white',
-                            lineColor='black',
-                            lineWidth = 1,
-                            opacity  = 1,
-                            interpolate = True)
+
+class Fix:
+        def __init__(self, shape = 'x', scale = 0.1, color = 'white', **kwargs):
+                global win
+                self.win = win
+                self.shape = shape
+                self.scale = scale
+                self.col = color
+                self.stim = None
+                self.stim_kwargs = kwargs
+                self.create()
+                self.apply_stim_settings()
+
+        def create(self):
+                shapes = {'crosses': ['x', '+'], 'dots': ['o', 'dot']}
+                try:
+                        self.stim = visual.ShapeStim(win = win,
+                                                        pos = (0, 0),
+                                                        vertices = (((-1.341,  0.447), (-1.341, -0.447),
+                                                                        (-0.447, -0.447), (-0.447, -1.341),
+                                                                        ( 0.447, -1.341), ( 0.447, -0.447),
+                                                                        ( 1.341, -0.447), ( 1.341,  0.447),
+                                                                        ( 0.447,  0.447), ( 0.447,  1.341),
+                                                                        (-0.447,  1.341), (-0.447,  0.447))
+                                                                if self.shape in shapes['crosses'] else 360),
+                                                        size = self.scale if self.shape in shapes['crosses'] else self.scale * 2,
+                                                        ori = 0 if self.shape != 'x' else 45,
+                                                        units = 'deg',
+                                                        colorSpace = 'hex',
+                                                        fillColor = None if self.shape == 'o' else self.col,
+                                                        lineColor = self.col,
+                                                        lineWidth = 0 if self.shape != 'o' else 2,
+                                                        interpolate = True)
+                except KeyError:
+                        raise ValueError(f"Invalid shape '{self.shape}'")
+
+
+        def color(self, color):
+                if self.shape == 'o':
+                        self.stim.lineColor = color
+                else:
+                        self.stim.color = color
+
+
+        def __getattr__(self, attr):
+                try:
+                        return getattr(self.stim, attr)
+                except AttributeError:
+                        raise AttributeError(f"'Fix' object has no attribute '{attr}'")
+
+
+        def apply_stim_settings(self):
+                # Apply additional settings passed through kwargs
+                for key, value in self.stim_kwargs.items():
+                        try:
+                                setattr(self.stim, key, value)
+                        except AttributeError:
+                                raise AttributeError(f"'Fix' object has no attribute '{key}'")
