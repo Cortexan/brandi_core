@@ -1,8 +1,13 @@
 # Importing necessary modules, functions, and settings from other local files
 from psychopy import core
-from functions import pRands, radGrid, waitSpace
+# from functions import pRands, radGrid, waitSpace
 from startup import win, kb, frame_dur
-from settings import *
+from settings import (n_prac_trials, n_trials, n_blocks, n_reps, n_rings,       # noqa: F401
+                      n_stim_r1, n_stim_r2, n_distractors, n_xtargs, fix_1_ms,  # noqa: F401
+                      fix_2_ms, isi_ms, resp_ms, iti_ms, practice_cutoff,       # noqa: F401
+                      shape_dva, fix_dva, r1_radius, r2_radius, stim_radius,    # noqa: F401
+                      t_r1_prop, t_r2_prop, sec_ms, color_set)                  # noqa: F401
+
 from stimuli import Shape, Fix
 
 #%% - creating stimuli

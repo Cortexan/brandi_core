@@ -11,19 +11,20 @@ win = visual.Window(size = [2560, 1440],
                     monitor = 'Home2',
                     colorSpace = 'hex',
                     color = color_set['bgColor'],
+                    checkTiming = False,
                     infoMsg = 'Just a moment...')
 
 # hide the mouse
 win.mouseVisible = False
 
 # warm up the window
-for x in range(100):
+for x in range(50):
     win.flip()
 
 # get the frame duration
 frame_test = []
 for i in range(10):
-    frame_time = 1.0 / round(win.getActualFrameRate(infoMsg = ''))
+    frame_time = 1.0 / round(win.getActualFrameRate(infoMsg = 'Just a moment...'))
     frame_test.append(frame_time)
 frame_dur = 1000*np.median(frame_test)
 
