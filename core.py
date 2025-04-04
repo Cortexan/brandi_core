@@ -10,7 +10,6 @@ from startup import frame_dur, kb, win
 from stimuli import Fix, Shape
 
 # %% - creating stimuli
-# region click carrot to expand
 # creating all the stimuli - these are all instances of the Shape class, which is defined in stimuli.py
 # the Shape class requires a shape name (string) and a scale (float) as arguments
 # you can create multiple instances of the same shape, as long as you give them different variable names.
